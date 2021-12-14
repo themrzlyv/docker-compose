@@ -1,0 +1,21 @@
+version: '20.10.11'
+services:
+  react-app:
+    container_name: react-app
+    build: ./react-app/.
+    ports:
+      - 3000:3000
+  server-app:
+    container_name: server-app
+    build: ./server-app/.
+    ports:
+      - 3050:3050
+  custom-mongo-server:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - my-app-data:/data/db
+volumes:
+  my-app-data:
+
